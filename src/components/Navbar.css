@@ -1,0 +1,97 @@
+.navbar {
+    display: flex;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: 75vw;
+    margin: auto;
+    background-image: linear-gradient(
+        to top,
+        rgba(240, 230, 220, 0.2),
+        rgba(240, 230, 220, 0.8),
+        rgba(240, 230, 220, 1)
+    );
+    transition: all 0.3s ease-in-out;
+}
+
+.show {
+    /*! add styles for when the navbar is scrolled */
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-container {
+    padding: 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.logo-text {
+    color: #4a4a4a;
+    margin-left: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: lighter;
+    backdrop-filter: blur(1px);
+}
+
+.links {
+    display: flex;
+    margin-left: auto;
+    padding: 10px 50px;
+    align-items: center;
+}
+
+.link {
+    color: #4a4a4a;
+    text-decoration: none;
+    padding: 10px 30px;
+    position: relative;
+    font-size: 20px;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #2c4a3d;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.link:hover::after,
+.link.active::after {
+    width: 80%;
+}
+
+@media (max-width: 1000px) {
+    .navbar {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        width: 100vw;
+        flex-direction: column;
+    }
+
+    .logo-container {
+        margin: 0 auto;
+    }
+
+    .links {
+        margin-left: 0;
+        justify-content: center;
+    }
+}
