@@ -72,6 +72,7 @@ const Home = () => {
                     </ul>
                 </div>
             </div>
+            <button className='book-btn-home'>Book Now</button>
         </div>
     );
 };
