@@ -1,29 +1,36 @@
 import './PackageCard.css';
+import { NavLink } from 'react-router-dom';
 import temp from '../assets/monstera.jpg';
 
 const PackageCard = ({ treatment }) => {
+    const bgs = {
+        base: 'gray',
+        'add-on': 'orange',
+        package: 'gold',
+    };
+
     return (
         <div className='package-card'>
-            <img
-                src={temp}
-                alt='image'
-                className='package-card-image'
-            />
-            <div className='package-card-info-overlay'>
-                <div className='package-card-info'>
-                    <h1>{treatment.title}</h1>
-                    <p>{treatment.duration}</p>
-                    <p>{treatment.price}</p>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Nesciunt voluptatibus dicta pariatur cumque,
-                        tempora ea voluptatem voluptate. Inventore, quis culpa
-                        reprehenderit quos neque tempore dicta recusandae
-                        perferendis cumque autem quasi.
+            <div className='package-card-info'>
+                <h1>{treatment.name}</h1>
+                <div className='package-card-details'>
+                    <p style={{ backgroundColor: bgs[treatment.type], opacity: 0.5 }}>
+                        {treatment.type}
                     </p>
+                    <p>{treatment.duration}</p>
+                    <p>{treatment.price} ₹</p>
                 </div>
-                <button className='book-btn'>Book Now</button>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maiores, ipsam animi? Asperiores alias quidem illum
+                    incidunt! Aut tempora officia ab dolorum quis culpa
+                    distinctio sapiente, commodi voluptas molestiae vel
+                    reprehenderit?
+                </p>
             </div>
+            <NavLink to='/bookonline'>
+                <button className='book-btn'>Book Now</button>
+            </NavLink>
         </div>
     );
 };

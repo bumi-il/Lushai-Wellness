@@ -1,13 +1,25 @@
 import './Packages.css';
-import { treatments } from '../data/treatments.json';
+import treatments_categories from '../data/treatments_categories.json';
+import treatments_list from '../data/treatments_list.json';
 import spa from '../assets/spa.jpg';
 import { useState } from 'react';
 import PackageCard from '../components/PackageCard';
 
 const Packages = () => {
-    let packages = Object.keys(treatments);
+    let query_string = window.location.search;
+    if (query_string) {
+        query_string = query_string.split('=')[1];
+        query_string = treatments_categories.find(
+            (category) => category.id === query_string
+        )?.label;
+    }
 
-    const [selectedPackage, setSelectedPackage] = useState(packages[0]);
+    // console.log(query_string.split('=')[1]);
+
+    const [selectedPackage, setSelectedPackage] = useState(
+        query_string ||
+        treatments_categories[0].label
+    );
 
     return (
         <div className='packages'>
@@ -20,28 +32,32 @@ const Packages = () => {
                     />
                 </div>
                 <div className='packages-nav'>
-                    {packages.map((key, index) => (
+                    {treatments_categories.map(({ label }, index) => (
                         <div
                             key={index}
                             className={
-                                key === selectedPackage
+                                label === selectedPackage
                                     ? 'package active-package'
                                     : 'package'
                             }
-                            onClick={() => setSelectedPackage(key)}
+                            onClick={() => setSelectedPackage(label)}
                         >
-                            <p>{key}</p>
+                            <p>{label}</p>
                         </div>
                     ))}
                 </div>
             </div>
             <div className='packages-cards'>
-                {treatments[selectedPackage].map((treatment, index) => (
-                    <PackageCard
-                        key={index}
-                        treatment={treatment}
-                    />
-                ))}
+                {treatments_list
+                    .filter(
+                        (treatment) => treatment.category === selectedPackage
+                    )
+                    .map((treatment, index) => (
+                        <PackageCard
+                            key={index}
+                            treatment={treatment}
+                        />
+                    ))}
             </div>
         </div>
     );

@@ -30,6 +30,7 @@
     img {
         width: 400px;
         height: 400px;
+        object-fit: cover;
         border-radius: 50% 0% 0% 50%;
         animation: fadeInRight 1s ease-in-out;
     }
@@ -99,6 +100,12 @@
 
 @media (max-width: 900px) {
     .section-1 {
+        img {
+            display: none;
+        }
+    }
+
+    .why-lushai {
         img {
             display: none;
         }

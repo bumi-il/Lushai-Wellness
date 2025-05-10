@@ -13,7 +13,7 @@ import {
 const Footer = () => {
     return (
         <div className='footer'>
-            <div className='contact'>
+            <div className='footer-contact'>
                 <div>
                     <FaMapMarkerAlt />
                     <span>123 Main St, City, Country</span>
