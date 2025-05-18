@@ -3,6 +3,7 @@ import './Contact.css';
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import Hero from '../components/Hero';
 
 const Form = () => {
     const [form, setForm] = useState({
@@ -29,8 +30,8 @@ const Form = () => {
             <div>
                 <h1>Get in Touch</h1>
                 <p>
-                    Have a question or just want to say hi? We'd love to hear from
-                    you.
+                    Have a question or just want to say hi? We'd love to hear
+                    from you.
                 </p>
                 <p>Fill up the form and our Team will get back to you soon.</p>
             </div>
@@ -81,25 +82,28 @@ const Form = () => {
 const Contact = () => {
     return (
         <div className='contact'>
-            <Form />
-            {/* map with location of the spa*/}
-            <div className='map'>
-                <MapContainer
-                    center={[23.7271, 92.7197]}
-                    zoom={16}
-                    style={{ height: '400px', width: '100%' }}
-                >
-                    <TileLayer
-                        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                        attribution='&copy; OpenStreetMap contributors'
-                    />
-                    <Marker position={[23.7271, 92.7197]}>
-                        <Popup>
-                            Lalhmingthanga Building, Zarkawt, Aizawl, Mizoram
-                            796007, India
-                        </Popup>
-                    </Marker>
-                </MapContainer>
+            <Hero>this is contact</Hero>
+            <div className='contact-content'>
+                <Form />
+                {/* map with location of the spa*/}
+                <div className='map'>
+                    <MapContainer
+                        center={[23.7271, 92.7197]}
+                        zoom={16}
+                        style={{ height: '400px', width: '100%' }}
+                    >
+                        <TileLayer
+                            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                            attribution='&copy; OpenStreetMap contributors'
+                        />
+                        <Marker position={[23.7271, 92.7197]}>
+                            <Popup>
+                                Lalhmingthanga Building, Zarkawt, Aizawl,
+                                Mizoram 796007, India
+                            </Popup>
+                        </Marker>
+                    </MapContainer>
+                </div>
             </div>
         </div>
     );

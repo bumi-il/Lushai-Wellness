@@ -1,10 +1,8 @@
 .navbar {
-    display: flex;
     position: sticky;
     z-index: 1;
     top: 0;
-    width: 75vw;
-    margin: auto;
+    width: 100%;
     background-image: linear-gradient(
         to top,
         rgba(240, 230, 220, 0.2),
@@ -12,6 +10,12 @@
         rgba(240, 230, 220, 1)
     );
     transition: all 0.3s ease-in-out;
+}
+
+.navbar-content {
+    width: 75%;
+    margin: auto;
+    display: flex;
 }
 
 .show {

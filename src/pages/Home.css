@@ -1,6 +1,11 @@
+.home-container {
+    width: 100%;
+}
+
 .home {
+    width: 75vw;
+    margin: auto;
     height: 100%;
-    margin: 20px;
     /* padding: 1px; */
     /* border: 2px solid black; */
     color: rgb(0, 80, 0);
@@ -99,6 +104,9 @@
 }
 
 @media (max-width: 900px) {
+    .home {
+        width: 100vw;
+    }
     .section-1 {
         img {
             display: none;

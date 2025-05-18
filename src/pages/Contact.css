@@ -1,5 +1,7 @@
-.contact {
-    /* background-color: aqua; */
+.contact-content {
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
 }
 
 .contact-form-container {

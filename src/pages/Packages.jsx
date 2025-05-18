@@ -4,6 +4,7 @@ import treatments_list from '../data/treatments_list.json';
 import spa from '../assets/spa.jpg';
 import { useState } from 'react';
 import PackageCard from '../components/PackageCard';
+import Hero from '../components/Hero';
 
 const Packages = () => {
     let query_string = window.location.search;
@@ -17,35 +18,28 @@ const Packages = () => {
     // console.log(query_string.split('=')[1]);
 
     const [selectedPackage, setSelectedPackage] = useState(
-        query_string ||
-        treatments_categories[0].label
+        query_string || treatments_categories[0].label
     );
 
     return (
         <div className='packages'>
-            <div className='packages-header'>
-                <div>
-                    <img
-                        src={spa}
-                        alt='image'
-                        className='packages-image'
-                    />
-                </div>
-                <div className='packages-nav'>
-                    {treatments_categories.map(({ label }, index) => (
-                        <div
-                            key={index}
-                            className={
-                                label === selectedPackage
-                                    ? 'package active-package'
-                                    : 'package'
-                            }
-                            onClick={() => setSelectedPackage(label)}
-                        >
-                            <p>{label}</p>
-                        </div>
-                    ))}
-                </div>
+            <Hero>
+                this is packages
+            </Hero>
+            <div className='packages-nav'>
+                {treatments_categories.map(({ label }, index) => (
+                    <div
+                        key={index}
+                        className={
+                            label === selectedPackage
+                                ? 'package active-package'
+                                : 'package'
+                        }
+                        onClick={() => setSelectedPackage(label)}
+                    >
+                        <p>{label}</p>
+                    </div>
+                ))}
             </div>
             <div className='packages-cards'>
                 {treatments_list
